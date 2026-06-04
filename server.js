@@ -3,8 +3,8 @@ const patchBtn = document.getElementById("patchBtn");
 const uidContainer = document.getElementById("uidContainer");
 const log = document.getElementById("log");
 
-// ⚠️ Quando seu servidor em nuvem estiver pronto, você colocará o link dele aqui:
-const API_URL = "https://seu-servidor-oculto.render.com/patch";
+
+const API_URL = "https://ff-servidor-oculto.onrender.com/patch";
 
 function addLog(t, cls="info"){
     log.innerHTML += `<div class="${cls}">➜ ${t}</div>`;
@@ -63,4 +63,3 @@ patchBtn.onclick = async () => {
         patchBtn.disabled = false;
     }
 };
-
