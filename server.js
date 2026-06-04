@@ -26,7 +26,7 @@ patchBtn.onclick = async () => {
     log.innerHTML = "";
     addLog("CONECTANDO AO SERVIDOR SEGURO...", "info");
 
-    // SISTEMA DE LOGS AUTOMÁTICOS
+    
     const mensagens = [
         "Despertando os sistemas do servidor oculto...",
         "Localizando arquivos de dados do mapa (ProjectData)...",
@@ -38,14 +38,14 @@ patchBtn.onclick = async () => {
     ];
     
     let msgIndex = 0;
-    // Dispara uma mensagem nova a cada 3.5 segundos
+    
     const logInterval = setInterval(() => {
         if (msgIndex < mensagens.length) {
             addLog(mensagens[msgIndex], "info");
             msgIndex++;
         }
     }, 3500);
-    // -----------------------------------------------------
+    
 
     const formData = new FormData();
     formData.append("mapa", file);
@@ -77,7 +77,7 @@ patchBtn.onclick = async () => {
         addLog("CONCLUÍDO COM SUCESSO! SEU MAPA FOI ATUALIZADO.", "success");
 
     } catch (e) {
-        // Garante que o intervalo pare se der erro
+        
         clearInterval(logInterval);
         addLog(`FALHA NO SERVIDOR: ${e.message}`, "fail");
         console.error(e);
