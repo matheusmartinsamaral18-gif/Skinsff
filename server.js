@@ -56,7 +56,7 @@ patchBtn.onclick = async () => {
             body: formData
         });
 
-        // Para as mensagens automáticas assim que o servidor responder
+        
         clearInterval(logInterval);
 
         if (!response.ok) {
