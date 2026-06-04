@@ -26,7 +26,7 @@ patchBtn.onclick = async () => {
     log.innerHTML = "";
     addLog("CONECTANDO AO SERVIDOR SEGURO...", "info");
 
-    // --- SISTEMA DE LOGS AUTOMÁTICOS (ENTRETENIMENTO) ---
+    // SISTEMA DE LOGS AUTOMÁTICOS
     const mensagens = [
         "Despertando os sistemas do servidor oculto...",
         "Localizando arquivos de dados do mapa (ProjectData)...",
