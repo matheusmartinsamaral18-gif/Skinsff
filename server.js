@@ -11,7 +11,7 @@ function addLog(t, cls="info"){
     log.scrollTop = log.scrollHeight;
 }
 
-// Ativa o botão assim que o usuário joga o arquivo
+
 zipInput.addEventListener("change", () => {
     if (zipInput.files[0]) {
         log.innerHTML = "";
@@ -32,7 +32,7 @@ patchBtn.onclick = async () => {
     formData.append("mapa", file);
 
     try {
-        // Envia o arquivo de forma oculta para a sua API na nuvem
+        
         const response = await fetch(API_URL, {
             method: "POST",
             body: formData
@@ -44,7 +44,7 @@ patchBtn.onclick = async () => {
 
         addLog("PROCESSANDO MAPA E INJETANDO ALTERAÇÕES...", "info");
 
-        // Recebe o arquivo modificado de volta do seu servidor
+        
         const blob = await response.blob();
         const finalUrl = URL.createObjectURL(blob);
         
