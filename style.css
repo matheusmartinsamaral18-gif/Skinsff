@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -33,11 +33,11 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 900;
     letter-spacing: 1.5px;
-    color: #3b82f6;
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    color: #f59e0b; /* Alterado para combinar com o tom de aviso/skins */
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
     margin-bottom: 6px;
 }
 
@@ -61,10 +61,9 @@ h1 {
 .alert-title {
     font-size: 13px;
     font-weight: 800;
-    color: #f87171;
+    color: #f59e0b;
     letter-spacing: 1px;
     margin-bottom: 12px;
-    text-shadow: 0 0 10px rgba(248, 113, 113, 0.2);
 }
 
 .desc-list {
@@ -86,18 +85,14 @@ h1 {
     color: #ffffff;
 }
 
-.bullet {
-    font-size: 12px;
-    margin-top: 2px;
-}
-
-/* Seções de Input e Upload */
+/* Input File */
 .input-section {
     background: #161b2e;
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #222a47;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 label {
@@ -105,199 +100,59 @@ label {
     margin-bottom: 12px;
     font-size: 14px;
     font-weight: 600;
-    color: #cbd5e1;
 }
 
-input[type=file] {
+input[type="file"] {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
+    background: #0f172a;
+    border: 1px dashed #3b82f6;
     border-radius: 8px;
-    background: #090d1a;
-    color: #94a3b8;
-    border: 1px solid #29345a;
+    color: #fff;
     cursor: pointer;
-    font-size: 14px;
 }
 
-input[type=text] {
+/* Botão de Ação */
+.action-section button {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #29345a;
-    border-radius: 8px;
-    background: #090d1a;
-    color: white;
-    outline: none;
-    font-size: 14px;
-    transition: all 0.3s;
-}
-
-input[type=text]:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
-}
-
-.uid-group {
-    margin-top: 5px;
-    margin-bottom: 25px;
-    background: #161b2e;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #222a47;
-}
-
-/* Botão Principal */
-.action-section {
-    margin-bottom: 30px;
-}
-
-button {
-    width: 100%;
-    padding: 18px;
+    padding: 16px;
+    background: #f59e0b;
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 900;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    transition: 0.3s;
 }
 
-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-}
-
-button:disabled {
-    background: #1c2237;
-    color: #4b5563;
-    box-shadow: none;
+.action-section button:disabled {
+    background: #475569;
     cursor: not-allowed;
 }
 
-/* Console de Logs */
-.console-section {
-    margin-bottom: 30px;
-}
+/* Cores dos Logs (Atualizado) */
+.log-step-1 { color: #facc15; }
+.log-step-2 { color: #60a5fa; }
+.log-step-3 { color: #4ade80; }
+.log-step-4 { color: #fb7185; }
+.log-step-5 { color: #a78bfa; }
+.log-step-6 { color: #fb923c; }
+.log-step-7 { color: #22d3ee; }
+.fail { color: #ef4444; font-weight: bold; }
+.success { color: #22c55e; font-weight: bold; }
 
-.log-title {
-    font-size: 12px;
-    font-weight: 700;
-    color: #475569;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.log {
-    background: #060810;
-    padding: 18px;
-    border-radius: 12px;
-    border: 1px solid #191f35;
-    height: 160px;
-    overflow-y: auto;
-    font-family: 'Consolas', 'Courier New', Courier, monospace;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-/* NOVO MAPEAMENTO DE CORES EXCLUSIVAS (PAINEL DINÂMICO) */
-.info {
-    color: #60a5fa; /* Azul Neon Elétrico: Status de leituras de arquivo e slots */
-    font-weight: 500;
-}
-
-.item-clothing {
-    color: #c084fc; /* Roxo Neon: Modificações de roupas (Sets, Peitorais, Cabelos, etc.) */
-    font-weight: 500;
-}
-
-.item-equip {
-    color: #fde047; /* Amarelo Neon: Modificações de Equipamentos (Skins de Arma e Mochilas) */
-    font-weight: 500;
-}
-
-.id-update {
-    color: #22d3ee; /* Ciano/Turquesa Neon: Atualizações e alterações do ID do jogador */
-    font-weight: 600;
-}
-
-.metadata {
-    color: #94a3b8; /* Cinza Claro Técnico: Atualização de arquivos de metadados internos */
-    font-size: 12px;
-}
-
-.success {
-    color: #4ade80; /* Verde Neon Brilhante: Mensagem de finalização com sucesso total */
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-}
-
-.fail {
-    color: #f87171; /* Vermelho Neon: Erros, falhas ou arquivos ausentes */
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(248, 113, 113, 0.2);
-}
-
-/* Rodapé e Botão do TikTok */
-.footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border-top: 1px solid #1c2237;
-    padding-top: 25px;
-}
-
+/* TikTok Botão */
 .tiktok-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 100%;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
     text-decoration: none;
-    padding: 14px;
-    border-radius: 10px;
-    background: #000000;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    border: 1px solid #3b82f6;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.tiktok-btn:hover {
-    background: #111111;
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-    border-color: #ffffff;
-}
-
-.tiktok-icon {
-    display: inline-block;
-}
-
-.welcome-msg {
-    font-size: 12px;
-    color: #334155;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-/* Responsivo */
-@media(max-width:700px){
-    body {
-        padding: 20px 10px;
-    }
-    .container {
-        padding: 25px 20px;
-    }
-    h1 {
-        font-size: 24px;
-    }
+    font-weight: 600;
 }
