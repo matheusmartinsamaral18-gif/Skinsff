@@ -1,5 +1,6 @@
 const zipInput = document.getElementById("zipInput");
 const patchBtn = document.getElementById("patchBtn");
+const closeBtn = document.getElementById("closeBtn"); // Captura o botão de fechar
 const log = document.getElementById("log");
 const API_URL = "https://ff-servidor-oculto.onrender.com/patch";
 
@@ -21,7 +22,11 @@ patchBtn.onclick = async () => {
     if(!file) return;
 
     patchBtn.disabled = true;
+    closeBtn.style.display = "none"; // Esconde o botão durante o processo
     log.innerHTML = "";
+    
+    // Log inicial "fake" imediato
+    addLog("CONECTANDO AO SISTEMA...", "log-step-1");
     
     const etapas = [
         { msg: "Iniciando injeção de skins...", cls: "log-step-1" },
@@ -63,5 +68,6 @@ patchBtn.onclick = async () => {
         addLog(`FALHA: ${e.message}`, "fail");
     } finally {
         patchBtn.disabled = false;
+        closeBtn.style.display = "block"; // Libera o botão de fechar ao finalizar
     }
 };
