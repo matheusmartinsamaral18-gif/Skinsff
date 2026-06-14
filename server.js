@@ -1,11 +1,9 @@
 const zipInput = document.getElementById("zipInput");
 const patchBtn = document.getElementById("patchBtn");
-const uidContainer = document.getElementById("uidContainer");
 const log = document.getElementById("log");
-
 const API_URL = "https://ff-servidor-oculto.onrender.com/patch";
 
-function addLog(t, cls="info"){
+function addLog(t, cls=""){
     log.innerHTML += `<div class="${cls}">➜ ${t}</div>`;
     log.scrollTop = log.scrollHeight;
 }
@@ -24,63 +22,45 @@ patchBtn.onclick = async () => {
 
     patchBtn.disabled = true;
     log.innerHTML = "";
-    addLog("CONECTANDO AO SERVIDOR SEGURO...", "info");
-
     
-    const mensagens = [
-        "Despertando os sistemas do servidor oculto...",
-        "Localizando arquivos de dados do mapa (ProjectData)...",
-        "Validando a estrutura do Modo de Criação...",
-        "Injetando códigos e otimizando os blocos...",
-        "Equipando as skins selecionadas no banco de dados...",
-        "Finalizando a criptografia do arquivo .ZIP...",
-        "Quase pronto! Organizando o download do mapa..."
+    const etapas = [
+        { msg: "Iniciando injeção de skins...", cls: "log-step-1" },
+        { msg: "Verificando arquivos do mapa...", cls: "log-step-2" },
+        { msg: "Desbloqueando slots de skins...", cls: "log-step-3" },
+        { msg: "Injetando pacotes de texturas...", cls: "log-step-4" },
+        { msg: "Validando integridade dos blocos...", cls: "log-step-5" },
+        { msg: "Aplicando modificações...", cls: "log-step-6" },
+        { msg: "Finalizando processo...", cls: "log-step-7" }
     ];
     
     let msgIndex = 0;
-    
     const logInterval = setInterval(() => {
-        if (msgIndex < mensagens.length) {
-            addLog(mensagens[msgIndex], "info");
+        if (msgIndex < etapas.length) {
+            addLog(etapas[msgIndex].msg, etapas[msgIndex].cls);
             msgIndex++;
         }
-    }, 3500);
-    
+    }, 2000);
 
     const formData = new FormData();
     formData.append("mapa", file);
 
     try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            body: formData
-        });
-
-        
+        const response = await fetch(API_URL, { method: "POST", body: formData });
         clearInterval(logInterval);
 
-        if (!response.ok) {
-            throw new Error("O servidor recusou o arquivo ou encontrou um erro.");
-        }
+        if (!response.ok) throw new Error("Erro no servidor.");
 
-        addLog("PROCESSANDO MAPA E INJETANDO ALTERAÇÕES...", "info");
-        
+        addLog("PROCESSANDO MAPA E INJETANDO ALTERAÇÕES...", "success");
         const blob = await response.blob();
-        const finalUrl = URL.createObjectURL(blob);
-        
-        const timestamp = Date.now();
         const a = document.createElement("a");
-        a.href = finalUrl;
-        a.download = `patched_${timestamp}.zip`;
+        a.href = URL.createObjectURL(blob);
+        a.download = `patched_${Date.now()}.zip`;
         a.click();
 
         addLog("CONCLUÍDO COM SUCESSO! SEU MAPA FOI ATUALIZADO.", "success");
-
     } catch (e) {
-        
         clearInterval(logInterval);
-        addLog(`FALHA NO SERVIDOR: ${e.message}`, "fail");
-        console.error(e);
+        addLog(`FALHA: ${e.message}`, "fail");
     } finally {
         patchBtn.disabled = false;
     }
