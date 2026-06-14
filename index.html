@@ -8,21 +8,21 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="header-section">
             <h1>ATIVAR SKINS</h1>
-            <div class="signature">Desenvolvido por <strong style="color: #f59e0b; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);">@THEUSSYT</strong></div>
+            <div class="signature">Desenvolvido por <strong style="color: #f59e0b;">@THEUSSYT</strong></div>
         </div>
         
         <div class="card shadow-glow">
             <div class="alert-title">⚠️ ATENÇÃO REQUISITOS</div>
             <div class="desc-list">
-                <div class="desc-item" style="border-bottom: 1px solid #232d4b; padding-bottom: 12px; margin-bottom: 4px;">
+                <div class="desc-item">
                     <span class="bullet">📦</span> 
-                    <span>O seu arquivo <strong>.ZIP</strong> deve conter obrigatoriamente estes 3 arquivos:<br>
+                    <span>O seu arquivo <strong>.ZIP</strong> deve conter os 3 arquivos obrigatórios:<br>
                     • <code style="color: #60a5fa;">ProjectData_slot_X.bytes</code><br>
                     • <code style="color: #60a5fa;">ProjectData_slot_X.meta</code><br>
-                    • <code style="color: #60a5fa;">UserLevelData_X.bytes</code>
-                    </span>
+                    • <code style="color: #60a5fa;">UserLevelData_X.bytes</code></span>
                 </div>
             </div>
         </div>
@@ -32,8 +32,6 @@
             <input type="file" id="zipInput" accept=".zip">
         </div>
 
-        <div id="uidContainer"></div>
-
         <div class="action-section">
             <button id="patchBtn" disabled>⚡ ATIVAR SKINS & BAIXAR MAPA</button>
         </div>
@@ -41,21 +39,23 @@
         <!-- Modal de Logs -->
         <div id="logsModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 9999;">
             <div class="modal-content" style="background: #0f172a; padding: 25px; width: 90%; max-width: 500px; border-radius: 12px; border: 1px solid #f59e0b; color: white; text-align: center;">
-                <div class="log-title">🖥️ Console de Operações</div>
-                <div style="font-size: 12px; color: #f59e0b; margin-bottom: 10px; font-weight: bold;">SISTEMA OPERADO POR @THEUSSYT</div>
+                <div class="log-title" style="margin-bottom: 10px; font-weight: bold;">🖥️ CONSOLE DE OPERAÇÕES</div>
+                <div style="font-size: 12px; color: #f59e0b; margin-bottom: 15px;">SISTEMA OPERADO POR @THEUSSYT</div>
                 <div class="log" id="log" style="margin: 15px 0; max-height: 300px; overflow-y: auto; text-align: left; font-size: 14px; color: #cbd5e1;"></div>
-                <button class="close-btn" onclick="document.getElementById('logsModal').style.display='none'" style="margin-top: 15px; padding: 8px 20px; background: #f59e0b; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">FECHAR</button>
+                <button class="close-btn" onclick="document.getElementById('logsModal').style.display='none'" style="width: 100%; padding: 10px; background: #f59e0b; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px;">FECHAR</button>
             </div>
         </div>
 
-        <div class="footer-section" style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 20px;">
-            <a href="https://www.tiktok.com/@theussyt" target="_blank" class="tiktok-btn">MEU TIKTOK OFICIAL</a>
-            <div class="welcome-msg">Modo de Criação FF</div>
+        <div class="footer-section" style="margin-top: 30px; text-align: center;">
+            <a href="https://www.tiktok.com/@theussyt" target="_blank" class="tiktok-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 24px; background: #000; border: 1px solid #333; border-radius: 8px; color: #fff; text-decoration: none; font-weight: bold;">
+                <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                    <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31c8.92,0,17.44.74,25.74,2.13v68.32a93.2,93.2,0,0,0-25.74-3.61,94.24,94.24,0,1,0,94.24,94.24V0h74.36a131.9,131.9,0,0,0,27.1,73.19A132.88,132.88,0,0,0,448,101.45V209.91Z"/>
+                </svg>
+                MEU TIKTOK OFICIAL
+            </a>
         </div>
     </div>
     
-    <script src="spark-md5.min.js"></script>
-    <script src="jszip.min.js"></script>
     <script src="server.js"></script>
     <script>
         document.getElementById('patchBtn').addEventListener('click', function() {
@@ -64,4 +64,3 @@
     </script>
 </body>
 </html>
-
