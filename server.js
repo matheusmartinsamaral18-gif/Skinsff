@@ -62,7 +62,7 @@ patchBtn.onclick = async () => {
         a.download = `patched_${Date.now()}.zip`;
         a.click();
 
-        addLog("CONCLUÍDO COM SUCESSO! SUAS SKINS FOI APLICADAS.", "success");
+        addLog("CONCLUÍDO COM SUCESSO! SUAS SKINS FORAM APLICADAS E SEU ARQUIVO FOI BAIXADO AUTOMATICAMENTE.", "success");
     } catch (e) {
         clearInterval(logInterval);
         addLog(`FALHA: ${e.message}`, "fail");
